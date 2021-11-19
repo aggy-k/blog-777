@@ -4,6 +4,14 @@
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
 
+    <%= cl_image_tag @article.title_image.key, height: 300, width: 400, crop: :fill %>
+
+    <% @article.images.each do |image| %>
+      <%= cl_image_tag image.key, height: 200, width: 300, crop: :fill %>
+    <% end -%>
+
+    <%#= image_tag @article.title_image, height: 300, width: 400, class: "object-cover" %>
+
     <%= render @article %>
 
     <%= link_to 'Edit this article', edit_article_path(@article), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
@@ -13,3 +21,15 @@
     <%= link_to 'Back to articles', root_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
 </div>
+
+
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @article.title_image.key, height: 300, crop: :fill %>')">
+  Cool article
+</div>
+
+
+
+
+
+
+
